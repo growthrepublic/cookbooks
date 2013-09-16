@@ -1,6 +1,6 @@
 #
 # Cookbook Name:: growthrepublic
-# Recipe:: gh_tools
+# Recipe:: newrelic
 #
 # Copyright 2013, Growth Republic Ltd.
 #
@@ -8,7 +8,6 @@
 #
 
 include_recipe "deploy"
-include_recipe "database"
 
 node[:deploy].each do |application, deploy|
   deploy = node[:deploy][application]
@@ -32,10 +31,5 @@ node[:deploy].each do |application, deploy|
     only_if do
       File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
     end
-  end
-
-  postgresql_database 'gh_tools' do
-    connection ({:host => "127.0.0.1", :port => 5432, :username => 'postgres', :password => node['postgresql']['password']['postgres']})
-    action :create
   end
 end
