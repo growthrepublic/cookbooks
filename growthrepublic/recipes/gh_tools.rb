@@ -1,3 +1,12 @@
+#
+# Cookbook Name:: growthrepublic
+# Recipe:: gh_tools
+#
+# Copyright 2013, Growth Republic Ltd.
+#
+# All rights reserved - Do Not Redistribute
+#
+
 include_recipe "deploy"
 
 node[:deploy].each do |application, deploy|
