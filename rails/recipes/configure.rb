@@ -55,10 +55,20 @@ node[:deploy].each do |application, deploy|
 
     notifies :run, "execute[restart Rails app #{application}]"
 
-    Chef::Log.warn 'Created new relic config file from Rails cookbook'
+    Chef::Log.info 'Created new relic config file from Rails cookbook'
 
     only_if do
       File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
     end
+  end
+
+  Chef::Log.info("Ensuring shared/assets directory for #{application} app...")
+
+  directory "#{deploy[:deploy_to]}/shared/assets" do
+    group deploy[:group]
+    owner deploy[:user]
+    mode 0775
+    action :create
+    recursive true
   end
 end
