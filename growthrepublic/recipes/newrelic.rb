@@ -20,7 +20,7 @@ node[:deploy].each do |application, deploy|
 
   template "#{deploy[:deploy_to]}/shared/config/newrelic.yml" do
     source "newrelic.yml.erb"
-    cookbook 'rails'
+    cookbook 'growthrepublic'
     mode "0660"
     group deploy[:group]
     owner deploy[:user]
