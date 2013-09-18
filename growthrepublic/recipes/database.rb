@@ -8,6 +8,9 @@
 #
 
 include_recipe "deploy"
+include_recipe "postgresql"
+include_recipe "postgresql::server"
+include_recipe "postgresql::ruby"
 include_recipe "database"
 
 node[:deploy].each do |application, deploy|
