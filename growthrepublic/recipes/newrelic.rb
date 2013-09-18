@@ -28,6 +28,8 @@ node[:deploy].each do |application, deploy|
 
     notifies :run, "execute[restart Rails app #{application}]"
 
+    Chef::Log.warn 'Created new relic config file'
+
     only_if do
       File.exists?("#{deploy[:deploy_to]}") && File.exists?("#{deploy[:deploy_to]}/shared/config/")
     end
