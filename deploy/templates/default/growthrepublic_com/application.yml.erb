@@ -18,15 +18,15 @@ defaults: &defaults
 
   api:
     app_token:
-      growth_republic: <%= @application['app_token']['growth_republic'] %>
-      untitled_kingdom: <%= @application['app_token']['untitled_kingdom'] %>
+      growth_republic: <%= config['app_token']['growth_republic'] %>
+      untitled_kingdom: <%= config['app_token']['untitled_kingdom'] %>
 
     base_crm:
       growth_republic:
-        api_token: <%= @application['base_crm']['growth_republic'] %>
+        api_token: <%= config['base_crm']['growth_republic'] %>
 
       untitled_kingdom:
-        api_token: <%= @application['base_crm']['untitled_kingdom'] %>
+        api_token: <%= config['base_crm']['untitled_kingdom'] %>
 
 development:
   <<: *defaults
