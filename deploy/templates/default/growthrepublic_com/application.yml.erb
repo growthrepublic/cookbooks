@@ -2,7 +2,7 @@ defaults: &defaults
   headers:
     access_control:
       allowed_origins:
-        - "http://<%= %x(ifconfig en1).slice(/(?<=inet\s)\d{2,3}(?:\.\d{1,3}){3}/) %>:<%= ENV['PORT'] || 4567 %>"
+        - "http://localhost:<%= ENV['PORT'] || 4567 %>"
         - "http://127.0.0.1:<%= ENV['PORT'] || 4567 %>"
         - 'http://growthrepublic.com'
         - 'http://untitledkingdom.co'
